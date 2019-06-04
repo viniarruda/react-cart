@@ -5,8 +5,7 @@ import {
   DETAIL_PRODUCT_REQUESTED,
   DETAIL_PRODUCT_FULFILLED,
   DETAIL_PRODUCT_REJECTED,
-  ATT_PRODUCTS,
-  ATT_DETAIL_PRODUCT
+  ATT_PRODUCTS
 } from "./action-types";
 
 const INITIAL_STATE = {
@@ -19,17 +18,17 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    // Esse vai ser o de início
     case LIST_PRODUCTS_REQUESTED:
     case DETAIL_PRODUCT_REQUESTED: {
       return {
         ...state,
         loading: true,
+        list: null,
+        spotlights: null,
         product: null,
         error: null
       };
     }
-    // Esse vai ser o de sucesso
     case LIST_PRODUCTS_FULFILLED: {
       return {
         ...state,
@@ -46,7 +45,6 @@ export default function(state = INITIAL_STATE, action) {
         error: null
       };
     }
-    // Esse vai ser o de erro
     case LIST_PRODUCTS_REJECTED:
     case DETAIL_PRODUCT_REJECTED: {
       return {
@@ -58,12 +56,6 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         list: action.payload
-      };
-    }
-    case ATT_DETAIL_PRODUCT: {
-      return {
-        ...state,
-        product: action.payload
       };
     }
     default:

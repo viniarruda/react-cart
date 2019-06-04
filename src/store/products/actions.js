@@ -6,7 +6,6 @@ import {
   DETAIL_PRODUCT_REQUESTED,
   DETAIL_PRODUCT_FULFILLED,
   DETAIL_PRODUCT_REJECTED,
-  ATT_DETAIL_PRODUCT,
   ATT_PRODUCTS
 } from "./action-types";
 
@@ -19,4 +18,3 @@ export const detailProductFulfilled = createAction(DETAIL_PRODUCT_FULFILLED);
 export const detailProductRejected = createAction(DETAIL_PRODUCT_REJECTED);
 
 export const attProducts = createAction(ATT_PRODUCTS);
-export const attDetailProduct = createAction(ATT_DETAIL_PRODUCT);
